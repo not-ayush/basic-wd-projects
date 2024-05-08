@@ -66,4 +66,5 @@ function playGame() {
     }
 }
 
-playGame()
+let start = document.querySelector('body > div > button')
+start.addEventListener("click", playGame)

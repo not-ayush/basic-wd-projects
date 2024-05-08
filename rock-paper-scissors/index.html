@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>h1, h2 {font-family: 'Courier New', Courier, monospace; text-align: center;}</style>
+    <style>
+        * {font-family: 'Courier New', Courier, monospace;} 
+        button {padding: 10px; margin: 0 0 auto 0;}
+        div {display: flex; flex-direction: column; gap: 10px; align-items: center;}
+    </style>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <h2>Played on the dev console</h2>
+    <div>   
+        <h1>Rock Paper Scissors</h1>
+        <h2>Open the dev console, then press Start</h2>
+        <button>Start</button>
+    </div>
 </body>
 </html>
