@@ -28,18 +28,27 @@ function playerIn() {
 
 function playRound(playerSelection, compSelection) {
     let selected = {player: playerSelection, computer: compSelection}
+    let roundOutcome;
     if (selected.player == selected.computer) {
-        return "draw"
+        roundOutcome = "draw"
     } else {
         switch (selected.player) {
             case "scissors":
-                return selected.computer == "rock" ? "computer": "player"
+                roundOutcome = selected.computer == "rock" ? "computer": "player"
             case "rock":
-                return selected.computer == "scissors" ? "player": "computer"
+                roundOutcome = selected.computer == "scissors" ? "player": "computer"
             case "paper":
-                return selected.computer == "rock" ? "player": "computer"
+                roundOutcome = selected.computer == "rock" ? "player": "computer"
         }
     }
+    if (roundOutcome == "draw") {
+        console.log(`this round is a draw`)
+    } else {
+        score[roundOutcome] += 1
+        console.log(`${roundOutcome} wins round this round.`)
+        console.log(`Score is: player: ${score["player"]}, computer: ${score["computer"]}`)
+    }
+    console.log("")
 }
 
 
@@ -47,16 +56,9 @@ function playGame() {
     for (let round = 1; round <= 5; round++) {
         let playerMove = playerIn()
         let compMove =  compIn()
-        let roundOutcome = playRound(playerMove, compMove)
+        console.log(`round no. : ${round}`)
         console.log(`player: ${playerMove}, computer: ${compMove}`)
-        if (roundOutcome == "draw") {
-            console.log(`round ${round} is a draw`)
-        } else {
-            score[roundOutcome] += 1
-            console.log(`${roundOutcome} wins round ${round}.`)
-            console.log(`Score is: player: ${score["player"]}, computer: ${score["computer"]}`)
-        }
-        console.log("")
+        playRound(playerMove, compMove)
     }
     if (score["player"] == score["computer"] ) {
         console.log("The game is a draw!")
@@ -65,6 +67,6 @@ function playGame() {
         console.log(`${winner} won the game!`)
     }
 }
-
-let start = document.querySelector('body > div > button')
-start.addEventListener("click", playGame)
+playGame()
+// let start = document.querySelector('body > div > button')
+// start.addEventListener("click", playGame)
