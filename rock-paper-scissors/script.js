@@ -1,29 +1,31 @@
-/*
-humanScore, compScore
-
-playGame()
-    loop 5:
-        compSelect = compIn(), 
-        playerSelect = playerIn()
-        playRound(compSelect, playerSelect): decide who wins and return the winner. 
-        increment Score acc to winner
-    announce game winner
-*/
-
+// data
 let score = {"player": 0, "computer": 0}
 const choices = ["scissors", "rock", "paper"]
+let roundNo = 0
+
+// dom elements
+const roundNoElem = document.querySelector('#round')
+const pScore = document.querySelector('#score #player')
+const cScore = document.querySelector('#score #computer')
+const cMove = document.querySelector('#comp-move')
+const curOut = document.querySelector('#current-outcome')
 
 function compIn() {
     let index = Math.floor(Math.random()*3)
+    cMove.textContent = choices[index]
     return choices[index]
 }
 
-function playerIn() {
-    let choice = prompt("enter: rock, paper or scissors? ").toLowerCase()
-    while (choices.indexOf(choice) === -1) {
-        choice = prompt("enter: rock, paper or scissors? ")
-    }
-    return choice
+function updateCounts() {
+    pScore.textContent = score["player"]
+    cScore.textContent = score["computer"]
+    roundNoElem.textContent = roundNo
+}
+
+function reset() {
+    score["player"] = 0 
+    score["computer"] = 0
+    roundNo = 0
 }
 
 function playRound(playerSelection, compSelection) {
@@ -44,30 +46,23 @@ function playRound(playerSelection, compSelection) {
         }
     }
     if (roundOutcome == "draw") {
-        console.log(`this round is a draw`)
-        console.log(`Score is: player: ${score["player"]}, computer: ${score["computer"]}`)
+        curOut.textContent = "This round is a draw"
     } else {
         score[roundOutcome] += 1
-        console.log(`${roundOutcome} wins round this round.`)
-        console.log(`Score is: player: ${score["player"]}, computer: ${score["computer"]}`)
+        curOut.textContent = `${roundOutcome} wins this round.`
     }
-    console.log("")
+    roundNo += 1
+    for (let i in score) {
+        if (score[i] == 5) {
+            curOut.textContent = `${i} wins the game.`
+            reset()
+            break
+        }
+    }
+    updateCounts()
 }
 
-
-function playGame() {
-    for (let round = 1; round <= 5; round++) {
-        let playerMove = playerIn()
-        let compMove =  compIn()
-        console.log(`round no. : ${round}`)
-        console.log(`player: ${playerMove}, computer: ${compMove}`)
-        playRound(playerMove, compMove)
-    }
-    if (score["player"] == score["computer"] ) {
-        console.log("The game is a draw!")
-    } else {
-        let winner = score["player"] < score["computer"] ? "computer": "player"
-        console.log(`${winner} won the game!`)
-    }
-}
-// playGame()
+let inputs = document.querySelectorAll('.input')
+inputs.forEach((btn) => {
+    btn.addEventListener('click', (e) => {playRound(e.target.textContent.toLowerCase(), compIn())})
+})

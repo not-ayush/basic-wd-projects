@@ -11,10 +11,10 @@
     <header> 
         <h1>Rock Paper Scissors</h1>
         <div id="info">
-            <span id="round">Round: _</span>
+            <div>Round: <span id="round">_</span></div>
             <div id="score">
-                <span id="player">Player: _</span> 
-                <span id="computer">Computer: _</span>
+                Player: <span id="player">_</span> 
+                Computer: <span id="computer">_</span>
             </div>
         </div>
     </header>  
@@ -22,14 +22,14 @@
         <div id="player">
             <h2>Your Move:</h2>
             <ul>
-                <li><button id="rock">Rock</button></li>
-                <li><button id="paper">Paper</button></li>
-                <li><button id="scissors">Scissors</button></li>
+                <li><button class="input rock">Rock</button></li>
+                <li><button class="input paper">Paper</button></li>
+                <li><button class="input scissors">Scissors</button></li>
             </ul>
         </div>
         <div id="comp">
             <h2>Computer's move:</h2>
-            <button id="comp-move"> - </button>
+            <div id="comp-move"> - </div>
         </div>
     </div>
     <footer id="current-outcome">Not in progress</footer>
