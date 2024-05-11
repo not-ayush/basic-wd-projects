@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-</head>
-<body>
-    <header> 
+  </head>
+  <body>
+    <div id="container">
+      <header>
         <h1>Rock Paper Scissors</h1>
         <div id="info">
-            <div>Round: <span id="round">_</span></div>
-            <div id="score">
-                Player: <span id="player">_</span> 
-                Computer: <span id="computer">_</span>
-            </div>
+          <div>Round: <span id="round">_</span></div>
+          <div id="score">
+            Player: <span id="player">_</span>  |  Computer:
+            <span id="computer">_</span>
+          </div>
         </div>
-    </header>  
-    <div id="game">
+      </header>
+      <div id="game">
         <div id="player">
-            <h2>Your Move:</h2>
-            <ul>
-                <li><button class="input rock">Rock</button></li>
-                <li><button class="input paper">Paper</button></li>
-                <li><button class="input scissors">Scissors</button></li>
-            </ul>
+          <h2>Your Move</h2>
+          <ul>
+            <li><button class="input rock">Rock</button></li>
+            <li><button class="input paper">Paper</button></li>
+            <li><button class="input scissors">Scissors</button></li>
+          </ul>
         </div>
         <div id="comp">
-            <h2>Computer's move:</h2>
-            <div id="comp-move"> - </div>
+          <h2>Computer's move</h2>
+          <div id="comp-move">-</div>
         </div>
+      </div>
+      <footer id="current-outcome">Not in progress</footer>
     </div>
-    <footer id="current-outcome">Not in progress</footer>
-</body>
+  </body>
 </html>
+
