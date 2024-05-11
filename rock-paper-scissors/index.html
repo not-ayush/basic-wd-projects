@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {font-family: 'Courier New', Courier, monospace;} 
-        button {padding: 10px; margin: 0 0 auto 0;}
-        div {display: flex; flex-direction: column; gap: 10px; align-items: center;}
-    </style>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div>   
+    <header> 
         <h1>Rock Paper Scissors</h1>
+        <div id="info">
+            <span id="round">Round: _</span>
+            <div id="score">
+                <span id="player">Player: _</span> 
+                <span id="computer">Computer: _</span>
+            </div>
+        </div>
+    </header>  
+    <div id="game">
+        <div id="player">
+            <h2>Your Move:</h2>
+            <ul>
+                <li><button id="rock">Rock</button></li>
+                <li><button id="paper">Paper</button></li>
+                <li><button id="scissors">Scissors</button></li>
+            </ul>
+        </div>
+        <div id="comp">
+            <h2>Computer's move:</h2>
+            <button id="comp-move"> - </button>
+        </div>
     </div>
+    <footer id="current-outcome">Not in progress</footer>
 </body>
 </html>

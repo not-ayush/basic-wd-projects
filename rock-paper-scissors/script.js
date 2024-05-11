@@ -35,14 +35,17 @@ function playRound(playerSelection, compSelection) {
         switch (selected.player) {
             case "scissors":
                 roundOutcome = selected.computer == "rock" ? "computer": "player"
+                break
             case "rock":
                 roundOutcome = selected.computer == "scissors" ? "player": "computer"
+                break
             case "paper":
                 roundOutcome = selected.computer == "rock" ? "player": "computer"
         }
     }
     if (roundOutcome == "draw") {
         console.log(`this round is a draw`)
+        console.log(`Score is: player: ${score["player"]}, computer: ${score["computer"]}`)
     } else {
         score[roundOutcome] += 1
         console.log(`${roundOutcome} wins round this round.`)
@@ -67,6 +70,4 @@ function playGame() {
         console.log(`${winner} won the game!`)
     }
 }
-playGame()
-// let start = document.querySelector('body > div > button')
-// start.addEventListener("click", playGame)
+// playGame()
