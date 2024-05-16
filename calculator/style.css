@@ -1,11 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-/* this is temporary */
-button {
-    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -19,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    align-items: center;
     margin-top: 120px;
     border: 2px solid rgb(107, 104, 104);
     padding: 10px;
@@ -26,15 +23,21 @@ body {
 }
 
 #display {
-    flex-basis: 60px;
-    min-width: 240px;
-    background-color: rgb(174, 174, 174);
+    flex-basis: 80px;
+    min-width: 320px;
+    background-color: rgb(116, 115, 115);
     margin-bottom: 5px;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 10px;
     border: 2px solid rgb(107, 104, 104);
 }
 
 .row {
-    flex-basis: 50px;
+    flex-basis: 60px;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
@@ -42,14 +45,12 @@ body {
 }
 
 .row button {
-    min-width: 60px;
+    min-width: 80px;
     padding: 20px;
+    font-size: 16px;
 }
 
-#back {
-    min-width: 125px;
-}
 
 #calc > div:nth-child(6) > button:first-child{
-    margin: 0px 65px;
+    margin: 0px 85px;
 }

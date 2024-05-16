@@ -9,10 +9,11 @@
   </head>
   <body>
     <div id="calc">
-      <div id="display"></div>
+      <div id="display">0</div>
       <div class="row">
-        <button class="option">C</button>
+        <button class="option" id="clear">C</button>
         <button class="option" id="back">⌫</button>
+        <button class="option" id="neg">-/+</button>
         <button class="operator">/</button>
       </div>
       <div class="row">
@@ -35,7 +36,7 @@
       </div>
       <div class="row">
         <button class="operand">0</button>
-        <button class="option operator">=</button>
+        <button class="option" id="equals">=</button>
       </div>
     </div>
   </body>
