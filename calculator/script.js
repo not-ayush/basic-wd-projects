@@ -60,12 +60,19 @@ operators.forEach((op) => {
     op.addEventListener("click", (e) => {
         let temp = e.target.textContent;
         // according to what state is there, put the operator or compute next state
-        if (displayStack[0] != "" && displayStack[2] == "")
+        if (displayStack[0] != "" && displayStack[2] == ""){
             displayStack[1] = temp;
-        else if (displayStack.every((e) => {return e != "";})) {
-            displayStack = [compute().toString(), temp, ""];
+            updateDisplay();
+        } else if (displayStack.every((e) => {return e != "";})) {
+            if (displayStack[1] == '/' && displayStack[2] == '0') { // zero divide with operator pressed
+                displayStack = ["", "", ""]
+                display.textContent = "don't do that"
+            } else  {
+                displayStack = [compute().toString(), temp, ""];
+                updateDisplay();
+            }
         }
-        updateDisplay();
+        
     });
 });
 
@@ -81,6 +88,9 @@ function compute() {
         case "+":
             return A + B;
         case "/":
+            if (B == 0) {
+                return "don't do that"
+            }
             return (A / B).toFixed(3);
         case "-":
             return A - B;
